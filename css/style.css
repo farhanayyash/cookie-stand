@@ -1,0 +1,70 @@
+body{
+  height: 100%;
+  width: 100%;
+  position: static;
+  background-image:url("https://wallpaperaccess.com/full/552581.jpg");
+  margin: 0;
+  padding: 20px 0 0 0;
+  color: #453823;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Zilla Slab Highlight', cursive;
+}
+main{
+  margin: 0 0 0 10%;
+
+  color: #ccbfaa;
+}
+.mainindex{
+  height: 1000px;
+  margin: 0 0 0 10%;
+
+  color: #ccbfaa;
+}
+#img1{
+  
+  width: 50px;
+  height: auto;
+  margin: 5px 0 0px 20px;
+  display: inline;
+}
+nav{
+  background-color: #BAA378;
+  padding: 0 0 7px 0;
+  position: sticky;
+}
+#ul1{
+  display: inline;
+}
+a{
+  text-decoration: none;
+  color: #453823;
+}
+
+.li1{
+  display: inline;
+  margin: 0 5px 5px 5px;
+  padding: 2px;
+
+}
+header{
+  width: 100%;
+  top: 0;
+  position: fixed;
+}
+a:hover{
+  color: bisque;
+}
+footer{
+  background-color: #BAA378;
+  padding: 0 0 7px 0;
+  width: 100%;
+  padding: 7px;
+ 
+  right: 0px;
+  bottom: 0px;
+}
+footer a{
+  size: 2000%;
+  margin: 7px 20px 5px 0 ;
+}
