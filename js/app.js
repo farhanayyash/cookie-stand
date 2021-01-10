@@ -1,10 +1,10 @@
 'use strict';
 console.log("farhanayyash");
 
-var nameOfLocation = ["Seattle","Tokyo","Dubai","Paris","Lima"];
-var minOfLocationPerHour = [23,3,11,20,2];
-var maxOfLocationPerHour = [65,24,38,38,16];
-var avgOfBuyPerHour = [6.3,1.2,3.7,2.3,4.6];
+var nameOfLocation = ["Seattle", "Tokyo", "Dubai", "Paris", "Lima"];
+var minOfLocationPerHour = [23, 3, 11, 20, 2];
+var maxOfLocationPerHour = [65, 24, 38, 38, 16];
+var avgOfBuyPerHour = [6.3, 1.2, 3.7, 2.3, 4.6];
 var allObject = [];
 
 function getRndInteger(min, max) {
