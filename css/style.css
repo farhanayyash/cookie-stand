@@ -73,5 +73,12 @@ footer a{
   margin-bottom: 50px;
   padding: 0 15% 0 15%;
 }
+table , td{
+  margin-top: 10%;
+  margin-bottom: 23%;
+  border: 1px solid#BAA378; 
+  text-align: center;
+}
+
 
 
