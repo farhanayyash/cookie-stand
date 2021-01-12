@@ -51,6 +51,7 @@ header{
   width: 100%;
   top: 0;
   position: fixed;
+  z-index: 1;
 }
 a:hover{
   color: bisque;
@@ -79,6 +80,21 @@ table , td{
   border: 1px solid#BAA378; 
   text-align: center;
 }
+#aclick{
+  position: relative;
+  display: inline;
+  padding: 25px 30px;
+  margin: 40px 0;
+  font-size: 24px;
+  text-transform: uppercase;
 
+}
+#aclick:hover{
+  border: 1px solid#BAA378;
+}
+.underline:hover{
+  border-bottom: 2px solid#3f3a30;
+
+}
 
 
