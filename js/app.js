@@ -40,16 +40,31 @@ LocationObject.prototype.randomnumberFun = function(){
   }
   this.howmanybuy.push(this.totalperlocation);
 }
+LocationObject.prototype.render = function(){
+  var writeRow = document.getElementById("alltable");
+  var interest = document.createElement('tr');
+  interest.textContent = this.name;
+  writeRow.appendChild(interest);
+  for(var count2 = 0; count2<hourPerday.length;count2++){
+    var interest2 = document.createElement('td');
+    interest2.textContent = this.howmanybuy[count2];
+    //console.log(hourPerday[count]);
+    interest.appendChild(interest2);}
+
+}
 
 function mainfunction(name,min,max,avg){
   for (var i = 0; i<name.length; i++){
     var object = new LocationObject(name[i],min[i],max[i],avg[i]);
     object.randomnumberFun();
+    object.render();
     allObject.push(object);
     }; 
 };
-
+BuildHeader(hourPerday);
 mainfunction(nameOfLocation,minOfLocationPerHour,maxOfLocationPerHour,avgOfBuyPerHour);
+
+
 
 console.log(allObject);
 
@@ -71,46 +86,84 @@ function BuildHeader (hourPerday){
   }
 
 }
-BuildHeader(hourPerday);
+
+
 
 function allHours(hourPerday){
   for(i = 0;i<hourPerday.length;i++){
-    var hold = allObject[0].howmanybuy[i]+allObject[1].howmanybuy[i]+allObject[2].howmanybuy[i]+allObject[3].howmanybuy[i]+allObject[4].howmanybuy[i];
+    var hold =0;
+    for(var count = 0;count <allObject.length;count++){
+      hold +=allObject[count].howmanybuy[i];
+    }
     allPerHour.push(hold);
   }
 }
 allHours(hourPerday);
-console.log(allPerHour);
+//console.log(allPerHour);
 
-function BuildRows(allObject){
+function BuildRows(allObject,test){
   var writeRow = document.getElementById("alltable");
-  var RowLocation = document.createElement('tbody');
-  writeRow.appendChild(RowLocation);
-  for(var count = 0; count<allObject.length;count++){
-    var interest = document.createElement('tr');
-    interest.textContent = allObject[count].name;
-    //console.log(hourPerday[count]);
-    RowLocation.appendChild(interest);
+  if (test == false){
+    var RowFooter = document.createElement('tfoot');
+    RowFooter.setAttribute('id',"tablefoot");
+    writeRow.appendChild(RowFooter);
+    var interestLast = document.createElement('tr');
+    interestLast.textContent = "Total";
+    RowFooter.appendChild(interestLast);
     for(var count2 = 0; count2<hourPerday.length;count2++){
-      var interest2 = document.createElement('td');
-      interest2.textContent = allObject[count].howmanybuy[count2];
-      //console.log(hourPerday[count]);
-      interest.appendChild(interest2);
-    }
-  }
-  var RowFooter = document.createElement('tfoot');
-  writeRow.appendChild(RowFooter);
-  var interestLast = document.createElement('tr');
-  interestLast.textContent = "Total";
-  RowFooter.appendChild(interestLast);
-  for(var count2 = 0; count2<hourPerday.length;count2++){
     var interest2 = document.createElement('td');
     interest2.textContent = allPerHour[count2];
     //console.log(hourPerday[count]);
     interestLast.appendChild(interest2);}
+  }else{
+    var ChangeRow = document.getElementById("tablefoot");
+    ChangeRow.remove();
+    BuildRows(allObject,false);
+  }
   
+}
+BuildRows(allObject,false);
+
+function Hello(){
+  var inputname = check(inputname,"Name of the New Location :");
+  nameOfLocation.push(inputname);
+  var inputmax = checknamber(inputmax,"Max for the New Location :");
+  inputmax =parseInt(inputmax);
+  maxOfLocationPerHour.push(inputmax);
+  var inputmin = checknamber(inputmin,"Min for the New Location :");
+  inputmin =parseInt(inputmin);
+  while(inputmin>=inputmax){
+    inputmin = checknamber(inputmin,"Min must be less than max:");
+  }
+  minOfLocationPerHour.push(inputmin);
+  var inputavg = checknamber(inputavg,"Avg for the New Location :");
+  inputavg =parseInt(inputavg);
+  avgOfBuyPerHour.push(inputavg);
+
+  var object = new LocationObject(inputname,inputmin,inputmax,inputavg);
+  object.randomnumberFun();
+  object.render();
+  allObject.push(object);
+  allPerHour = [];
+  allHours(hourPerday);
+  BuildRows(allObject,true);
+  console.log(allObject);
 
 }
-BuildRows(allObject);
 
+function check(x, y ){
+  while (x == "" || x == null || x == undefined || x == 0 ){
+      x = prompt(y);
+  }
+  return x;
+}
+function checknamber(q6, y ){
+  q6 = prompt(y);
+  q6 = Number(q6);
+  while(!(Number.isInteger(q6)) || q6 == ""){
+    q6 = prompt(y);
+    q6 = Number(q6);
+  }
+  return q6;
+}
 
