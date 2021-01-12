@@ -16,7 +16,7 @@ main{
   color: #ccbfaa;
 }
 .mainindex{
-  height: 1100px;
+  height: 2500px;
   margin: 0 0 0 10%;
 
   color: #ccbfaa;
@@ -96,5 +96,22 @@ table , td{
   border-bottom: 2px solid#3f3a30;
 
 }
+#photos{
+  margin: 40px;
+}
+#photos img{
+  border: 20px solid#72654e;
+  margin: 40px;
 
-
+}
+#footerindex{
+  width: 100%;
+}
+#divmap{
+  float: left;
+  margin-left: 200px;
+}
+#hour{
+  position: relative;
+  margin-top: 184px;
+}
