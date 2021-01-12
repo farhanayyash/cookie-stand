@@ -159,10 +159,10 @@ function check(x, y ){
 }
 function checknamber(q6, y ){
   q6 = prompt(y);
-  q6 = Number(q6);
-  while(!(Number.isInteger(q6)) || q6 == ""){
+  q6 = parseFloat(q6);
+  while(isNaN(q6%1) || q6 == ""){
     q6 = prompt(y);
-    q6 = Number(q6);
+    q6 = parseFloat(q6);
   }
   return q6;
 }
