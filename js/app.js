@@ -124,19 +124,19 @@ function BuildRows(allObject,test){
 }
 BuildRows(allObject,false);
 
-function Hello(){
-  var inputname = check(inputname,"Name of the New Location :");
+function Hello(a,b,c,d){
+  var inputname = a;
   nameOfLocation.push(inputname);
-  var inputmax = checknamber(inputmax,"Max for the New Location :");
+  var inputmax = b;
   inputmax =parseInt(inputmax);
   maxOfLocationPerHour.push(inputmax);
-  var inputmin = checknamber(inputmin,"Min for the New Location :");
+  var inputmin = c;
   inputmin =parseInt(inputmin);
   while(inputmin>=inputmax){
     inputmin = checknamber(inputmin,"Min must be less than max:");
   }
   minOfLocationPerHour.push(inputmin);
-  var inputavg = checknamber(inputavg,"Avg for the New Location :");
+  var inputavg = d;
   inputavg =parseInt(inputavg);
   avgOfBuyPerHour.push(inputavg);
 
@@ -167,3 +167,38 @@ function checknamber(q6, y ){
   return q6;
 }
 
+function creatform(){
+  document.getElementById("divform").innerHTML='<form><fieldset> <p id="para-form">Add New location</p><label for="name">Name:</label><input type="text" name="name" id="name" placeholder="Location Name" required /><br><label for="max">Max:</label><input type="number" id="max" name="max" placeholder="Any number"><br><label for="min">Min:</label><input type="number" id="min" name="min" placeholder="Any number"><br><label for="avg">Average:</label><input type="number" id="avg" name="avg" placeholder="Any number"><br><button id="sub-form"type="submit">Submit</button><p id="p-form">X</p></fieldset></form>';
+
+  var eform = document.getElementById("p-form");
+  eform.addEventListener("click", closep);  
+
+  document.getElementById("sub-form").addEventListener("click", function(event)
+  {
+    event.preventDefault()
+    var namef = document.querySelector("#name").value;
+    checkinput(namef);
+    var maxf  = document.querySelector("#max").value;
+    checkinput(maxf);
+    var minf  = document.querySelector("#min").value;
+    checkinput(minf);
+    var avgf  = document.querySelector("#avg").value;
+    checkinput(avgf);
+    
+
+    Hello(namef,maxf,minf,avgf);
+    closep();
+  });
+
+
+}
+
+function closep(){
+  document.getElementById("divform").innerHTML="";
+}
+function checkinput(x){
+  if(x==""|| x==null){
+    alert("Fill all the blanks");
+    closep();
+  }
+}
